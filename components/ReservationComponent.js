@@ -14,7 +14,7 @@ class Reservation extends Component {
 	}
     }
 
-    static navigationOptions: {
+    static navigationOptions =  {
 	title: 'Reserve Table'
     }
 
@@ -27,15 +27,18 @@ class Reservation extends Component {
 	})
     }
 
-    pickerValues = () => {
-	values = ['1','2','3','4','5','6'];
-
-	return values.map((v) => {
-	<Picker.Item key={v} label={v} value={v} />
-  	});
-    }
-
     render() {
+
+	const values = ['2','3','4','5','6'];
+	const pickerValues = values.map((v) => {
+	return (
+	<Picker.Item key={v} label={v} value={v} />
+	)
+  	});
+
+
+    pickerValues.unshift(<Picker.Item key='1' label='1' value='1'/>)
+
 	return (
 	    <ScrollView>
 		<View style={styles.formRow}>
@@ -44,14 +47,14 @@ class Reservation extends Component {
 			style={styles.formItem}
 			selectedValue={this.state.guests}
 			onValueChange={(itemValue, itemIndex) => this.setState({guests: itemValue})}>
-			{this.pickerValues()}
+			{pickerValues}
 		    </Picker>
 		</View>
 		<View style={styles.formRow}>
 		    <Text style={styles.formLabel}>Smoking/Non-Smoking?</Text>
 		    <Switch style={styles.formItem}
 			value={this.state.smoking}
-			onTintColor='#512DA8'
+			trackColor='#512DA8'
 			onValueChange={(value) => this.setState({smoking: value})}>
 		    </Switch>
 		</View>
