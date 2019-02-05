@@ -96,7 +96,7 @@ class Reservation extends Component {
 			title='Reserve'
 			color='#512DA8'
 			onPress={() => this.handleReservation()}
-			accesbilityLabel='Learn more about this purple button' />
+			accessibilityLabel='Learn more about this purple button' />
 		</View>
 		<Modal
 		    animationType={'slide'}

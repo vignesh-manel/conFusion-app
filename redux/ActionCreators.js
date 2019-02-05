@@ -46,13 +46,13 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
 
 }
 
-export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+export const postComment = (comments) => (dispatch) => {
 
 	const newComment = {
-	    dishId: dishId,
-	    rating: rating,
-	    author: author,
-	    comment: comment
+	    dishId: comments.dishId,
+	    rating: comments.rating,
+	    author: comments.author,
+	    comment: comments.comment
 	}
 	newComment.date = new Date().toISOString();
 
